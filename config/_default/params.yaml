@@ -6,16 +6,16 @@
 # Appearance
 appearance:
   mode: system
-  color: emerald
+  color: red2
 
 # SEO
 marketing:
   seo:
     site_type: Person
-    local_business_type: ''
-    org_name: ''
-    description: 'The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website.'
-    twitter: 'GetResearchDev'
+    local_business_type: 'Academic'
+    org_name: 'Ecole Polytechnique'
+    description: 'Léo Denis - PhD Student Ecole Polytechnique - Sustainable Finance'
+    twitter: ''
   analytics:
     google_analytics: ''
     baidu_tongji: ''
@@ -35,12 +35,12 @@ header:
     show_search: true
     show_theme_chooser: true
     logo:
-      text: "Your Name"
+      text: "Léo Denis"
 
 # Site footer
 footer:
   copyright:
-    notice: '© {year} Me. This work is licensed under {license}'
+    notice: '© {year} Léo Denis. This work is licensed under {license}'
     license:
       enable: true
       allow_derivatives: false
