@@ -9,4 +9,4 @@ tags:
   - Conferences
 profile: false
 ---
-I will be at EGOS 20
+I will be at EURAM 2024 (Bath, UK) and EGOS 2024 (Milan, Italy)!

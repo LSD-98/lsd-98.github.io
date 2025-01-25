@@ -40,7 +40,6 @@ interests:
   - Sustainable Finance & Impact Investing
   - Corporate Governance
   - Organization Theory
-  - Private Equity
 
 education:
   - area: PhD in Management Science,
@@ -144,3 +143,5 @@ awards:
 I am a PhD Candidate in Management Science at Ecole Polytechnique and a Fellow at the Center for Management Studies (i3, UMR CNRS 9217). Before joining Polytechnique, I graduated from Ecole Normale Supérieure Paris-Saclay in Economics & Management. I also worked in the private equity sector (Trocadero Capital Partners, Cathay Capital) between 2020 and 2024. Most of my research focuses on the development of sustainable finance in the private markets, and whether & how it can positively impact society.
 
 My work is supported by ANRT, Trocadero Capital Partners (CIFRE) and professional organizations (Forum pour l'Investissement Responsable, Association française des Investisseurs Institutionnels).
+
+You can contact me at [leo.denis@polytechnique.edu](mailto:leo.denis@polytechnique.edu).
