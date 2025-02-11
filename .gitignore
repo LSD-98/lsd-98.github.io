@@ -1,0 +1,9 @@
+# Ignore deployed site
+public/
+resources/
+go.sum
+hugo_stats.json
+.hugo_build.lock
+
+# Ignore DS_Store
+.DS_Store
