@@ -1,7 +1,7 @@
 ---
 # Leave the homepage title empty to use the site title
 title: ""
-date: 2025-01-22
+date: 2025-02-12
 type: landing
 
 design:
@@ -35,7 +35,7 @@ sections:
     content:
       title: News & Updates
       #subtitle: ''
-      text: '**Announcement:** I am conducting a survey of french PE firms regarding their sustainable finance practices. If you are interested in participating (and have not been contacted already), please [send me an email](mailto:leo.denis@polytechnique.edu)! '
+      text: '**Announcement:** I am conducting a survey of French PE firms regarding their sustainable finance practices. If you are interested in participating (and have not been contacted already), please [send me an email](mailto:leo.denis@polytechnique.edu)!'
       page_type: post
       # Choose how many pages you would like to display (0 = all pages)
       count: 10
