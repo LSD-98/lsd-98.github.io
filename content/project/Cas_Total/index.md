@@ -2,9 +2,9 @@
 title: Responsible shareholders, an influential minority? The case of TotalEnergies SE (2020-2024)
 date: 2025-08-31
 authors:
-  - Nicolas Mottis
   - admin
-status: Conditionnaly Accepted, Revue Française de Gestion
+  - Nicolas Mottis
+status: Forthcoming, Revue Française de Gestion
 tags:
   - Sustainable Finance
   - Shareholder Engagement
