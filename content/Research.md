@@ -21,7 +21,7 @@ sections:
       columns: 1
   - block: collection
     content:
-      title: Other publications
+      title: Publications
       filters:
         folders:
           - publication
