@@ -1,6 +1,5 @@
 ---
 title: "Les actionnaires responsables, minoritaires mais influents ? - Étude de l’engagement actionnarial chez TotalEnergies"
-draft: true
 authors:
 - admin
 - Nicolas Mottis
