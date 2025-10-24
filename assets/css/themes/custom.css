@@ -1,0 +1,226 @@
+/* ==========================================================================
+   Léo Denis — Brand CSS (v2)
+   Noir & blanc + accents Royal Blue (liens techniques, mail, navbar hover)
+   ========================================================================== */
+
+/* === 1. Largeur uniforme : Working Papers & Publications ================= */
+
+/* Working Papers */
+section#working_papers,
+section#working_papers .container,
+section#working_papers .article-grid,
+section#working_papers .prose {
+  max-width: 56rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Publications (view: citation) */
+section#publications,
+section#publications .container,
+section#publications .view-citation,
+section#publications .citation-list,
+section#publications .article-style,
+section#publications .block,
+section#publications .prose {
+  max-width: 56rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* === 2. Palette principale : noir & blanc ================================ */
+
+body,
+.prose,
+.prose p,
+.prose li,
+.prose strong,
+.prose em,
+.prose b,
+.prose i,
+h1, h2, h3, h4, h5, h6,
+nav,
+.section-heading,
+.article-grid h2,
+.article-list h2,
+.citation h2 {
+  color: #000 !important;
+  text-decoration: none;
+}
+
+/* === 3. Liens par défaut (noirs) ======================================== */
+
+a,
+a:visited {
+  color: #000 !important;
+  text-decoration: none;
+}
+
+/* === 4. Accents Royal Blue ============================================== */
+
+/* Liens techniques & mailto */
+a[href*=".pdf"],
+a[aria-label*="PDF"],
+a[aria-label*="CITE"],
+a[aria-label*="DOI"],
+a[aria-label*="Code"],
+a[aria-label*="Slides"],
+a[aria-label*="Video"],
+a[aria-label*="Dataset"],
+a[aria-label*="Source"],
+a[aria-label*="Custom"],
+a[href^="mailto:"],
+a[href*="doi.org"],
+.cite-link,
+.doi,
+.doi a,
+.doi a:visited {
+  color: royalblue !important;
+  fill: royalblue !important;
+}
+
+/* Hover (bleu plus doux) */
+a[href*=".pdf"]:hover,
+a[aria-label*="PDF"]:hover,
+a[aria-label*="CITE"]:hover,
+a[aria-label*="DOI"]:hover,
+a[aria-label*="Code"]:hover,
+a[aria-label*="Slides"]:hover,
+a[aria-label*="Video"]:hover,
+a[aria-label*="Dataset"]:hover,
+a[aria-label*="Source"]:hover,
+a[aria-label*="Custom"]:hover,
+a[href^="mailto:"]:hover,
+a[href*="doi.org"]:hover,
+.cite-link:hover,
+.doi a:hover {
+  color: #4169e1 !important;
+  text-decoration: underline;
+}
+
+/* === 5. Navbar ========================================================== */
+
+nav a,
+nav a:visited {
+  color: #000 !important;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+nav a:hover,
+nav a:focus {
+  color: royalblue !important;
+  text-decoration: none;
+}
+
+/* === 6. Mode sombre ===================================================== */
+
+.dark body,
+.dark .prose,
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #fff !important;
+}
+
+.dark a,
+.dark a:visited {
+  color: #fff !important;
+}
+
+.dark a[href*=".pdf"],
+.dark a[aria-label*="PDF"],
+.dark a[aria-label*="CITE"],
+.dark a[aria-label*="DOI"],
+.dark a[aria-label*="Code"],
+.dark a[aria-label*="Slides"],
+.dark a[aria-label*="Video"],
+.dark a[aria-label*="Dataset"],
+.dark a[aria-label*="Source"],
+.dark a[aria-label*="Custom"],
+.dark a[href^="mailto:"],
+.dark a[href*="doi.org"],
+.dark .cite-link,
+.dark .doi a {
+  color: #8ab4f8 !important;
+  fill: #8ab4f8 !important;
+}
+
+.dark nav a:hover,
+.dark nav a:focus {
+  color: #8ab4f8 !important;
+}
+
+/* === 8. Section News & Updates — largeur intermédiaire =================== */
+
+section#Updates,
+section#Updates .block,
+section#Updates .container {
+  max-width: 50rem !important; /* largeur moyenne, à ajuster si besoin */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center; /* garde le centrage global */
+}
+
+/* Les paragraphes et liens internes peuvent s'étendre un peu plus */
+section#Updates .prose,
+section#Updates p {
+  max-width: 50rem !important;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* News & Updates : élargir le texte d'intro (entre bio et cartes) */
+section#Updates .prose,
+section#Updates .article-style,
+section#Updates .block,
+section#Updates .container {
+  width: 100% !important;
+  max-width: 50rem !important;   /* ← juste milieu ; mets 58rem si tu veux coller au bloc bio */
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Écraser toutes les classes Tailwind de type max-w-* utilisées par le thème */
+section#Updates [class*="max-w-"] {
+  max-width: 50rem !important;   /* ← même valeur que ci-dessus */
+}
+
+/* La typographie reste centrée (si tu veux la garder centrée) */
+section#Updates .prose p { text-align: center; line-height: 1.6; }
+
+/* === 9. Mode sombre : texte principal de la bio ========================== */
+
+/* Cible la bio custom et rend le texte clair en mode dark */
+.dark .resume-biography,
+.dark .resume-biography-custom,
+.dark .bio-text,
+.dark .resume-biography .prose,
+.dark .resume-biography-custom .prose {
+  color: #ffffff !important;          /* texte principal en blanc */
+}
+
+/* Pour le texte moins important (p, li, span, etc.) */
+.dark .resume-biography p,
+.dark .resume-biography-custom p,
+.dark .resume-biography li,
+.dark .resume-biography-custom li {
+  color: #e5e5e5 !important;          /* léger gris clair pour lisibilité */
+}
+
+/* Les liens restent Royal Blue en mode sombre */
+.dark .resume-biography a,
+.dark .resume-biography-custom a {
+  color: royalblue !important;
+  text-decoration: none;
+}
+
+.dark .resume-biography a:hover,
+.dark .resume-biography-custom a:hover {
+  text-decoration: underline;
+  color: #4169e1 !important;
+}

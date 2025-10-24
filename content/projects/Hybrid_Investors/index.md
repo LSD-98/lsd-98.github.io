@@ -1,13 +1,14 @@
 ---
-title: Hybridizing investors, governing investment organizations for systemic impact
-date: 2025-01-18
+title: 'Hybridizing Investors: Designing Investment Organizations for Social Impact'
+date: 2025-10-01
 authors:
   - admin
   - Nicolas Mottis
-Status: Draft & Slides available on request
+Status: Draft available on request
 tags:
   - Sustainable Finance
-  - Hybrid Organizations
+  - Organization Design
+  - Corporate Governance
   - Case study
   - Private Equity
 ---

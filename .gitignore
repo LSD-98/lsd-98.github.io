@@ -1,9 +1,49 @@
-# Ignore deployed site
+# =========================================================
+# HugoBlox / Hugo site ignore file
+# =========================================================
+
+# --- Deployed site & build outputs ---
 public/
 resources/
-go.sum
 hugo_stats.json
 .hugo_build.lock
 
-# Ignore DS_Store
+# --- Hugo module cache ---
+.hugo_cache/
+.cache/
+tmp/
+
+# --- Node & dependencies ---
+node_modules/
+package-lock.json
+
+# --- Go build files ---
+go.sum
+go.mod
+
+# --- Logs & temporary files ---
+*.log
+npm-debug.log*
+
+# --- OS-specific junk files ---
 .DS_Store
+Thumbs.db
+Icon?
+ehthumbs.db
+
+# --- Editor & IDE metadata ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Build artifacts ---
+dist/
+build/
+
+# --- Backup / temp / test files ---
+*.bak
+*.old
+*~
+
+# --- Netlify / deployment ---
