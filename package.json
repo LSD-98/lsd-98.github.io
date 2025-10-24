@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "My personal website",
   "main": "index.js",
+  "packageManager": "pnpm@10.14.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "hugo server --disableFastRender",
+    "build": "hugo --minify"
   },
   "repository": {
     "type": "git",
@@ -18,7 +21,7 @@
     "url": "https://github.com/LSD-98/lsd-98.github.io/issues"
   },
   "homepage": "https://github.com/LSD-98/lsd-98.github.io#readme",
-  "devDependencies": {
+  "Dependencies": {
     "@tailwindcss/typography": "^0.5.19",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
