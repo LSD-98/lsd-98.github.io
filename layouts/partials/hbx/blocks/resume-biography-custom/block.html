@@ -18,8 +18,8 @@
 {{ $avatar_shape := site.Params.features.avatar.shape | default "circle" }}
 
 
-<div class="resume-biography px- flex flex-col md:flex-row justify-center gap-12">
-  <div class="flex-none m-w-[130px] mx-auto md:mx-0">
+<div class="resume-biography flex flex-col md:flex-row items-start justify-center gap-12">
+  <div class="flex-none min-w-[130px] mx-auto md:mx-0">
 
   {{ $img := "" }}
   {{with $block.design.banner.filename}}
@@ -42,7 +42,7 @@
   <div id="profile" class="flex justify-center items-center flex-col">
     {{ if $avatar }}
 
-    <div class="avatar-wrapper {{ if $img }}-mt-[500px]{{else}}mt-0{{end}}">
+    <div class="avatar-wrapper mt-0">
       {{ $avatar_image := $avatar.Fill "250x250 Center" }}
       <img class="avatar rounded-full bg-white dark:bg-gray-800 p-1" src="{{ $avatar_image.RelPermalink }}" alt="{{$person_page.Title}}"
            width="{{ $avatar_image.Width }}" height="{{ $avatar_image.Height }}">
@@ -100,10 +100,10 @@
   </div>
   </div>
 
-  <div class="flex-auto max-w-prose md:mt-10">
+  <div class="flex-auto max-w-3xl self-start md:mt-0">
     {{ with ($block.content.text | emojify | $page.RenderString) | default $person_page.Content }}
-    <div class="pt-2 justify-content-center prose prose-slate dark:prose-invert">
-      <div class="bio-text" style="text-align: justify;" {{ with $block.design.biography.style }}{{ (printf "style=\"%s\"" .) | safe.HTMLAttr }}{{end}}>
+    <div class="pt-2 justify-content-center prose prose-slate dark:prose-invert prose-headings:mt-0 max-w-none">
+      <div class="bio-text" style="text-align: justify; max-width: none !important; width: 100% !important;" {{ with $block.design.biography.style }}{{ (printf "style=\"%s\"" .) | safe.HTMLAttr }}{{end}}>
           {{ . }}
       </div>
     </div>

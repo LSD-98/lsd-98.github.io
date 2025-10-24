@@ -15,7 +15,7 @@ sections:
       title: Working Papers
       filters:
         folders:
-          - project
+          - projects
     design:
       view: article-grid
       columns: 1
@@ -24,7 +24,7 @@ sections:
       title: Publications
       filters:
         folders:
-          - publication
+          - publications
     design:
       view: citation
 ---
