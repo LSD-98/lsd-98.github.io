@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "My personal website",
+  "packageManager": "pnpm@10.14.0",
   "scripts": {
     "dev": "hugo server --disableFastRender",
     "build": "hugo --minify"
