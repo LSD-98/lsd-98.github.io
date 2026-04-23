@@ -1,27 +1,16 @@
 {{ define "main" }}
   {{ $sourcePage := "/Organizational_Architectures/" }}
-  {{ $errorMessages := dict
-      "missing_full_name" "Please enter your full name."
-      "missing_job_title" "Please enter your job title."
-      "missing_company" "Please enter your company or institution."
-      "missing_email" "Please enter your email address."
-      "missing_consent" "Please confirm your consent before continuing."
-      "invalid_email" "The email address you entered is not valid."
-      "server_config" "The download service is temporarily unavailable. Please try again later."
-  }}
-  {{ $error := .Params.error | default "" }}
-  {{ $errorQuery := "" }}
 
   <article class="article">
     <div class="article-container">
       <div class="max-w-3xl mx-auto px-6 py-12">
-        <div class="rounded-[28px] border border-black/5 bg-white shadow-[0_30px_80px_rgba(15,23,42,0.10)] p-8 md:p-10">
+        <div class="rounded-[28px] border border-black/5 bg-white dark:bg-white shadow-[0_30px_80px_rgba(15,23,42,0.10)] p-8 md:p-10">
           <p class="text-xs font-bold uppercase tracking-[0.22em] text-[royalblue]">Empirical report</p>
-          <h1 class="mt-2 text-4xl font-bold leading-tight">Access the report</h1>
-          <p class="mt-5 text-lg leading-8 text-gray-700">
+          <h1 class="mt-2 text-4xl font-bold leading-tight text-gray-900 dark:text-gray-900">Access the report</h1>
+          <p class="mt-5 text-lg leading-8 text-gray-700 dark:text-gray-700">
             Before downloading the empirical report, I ask visitors to complete a short form with their name, job title, company, and email address.
           </p>
-          <p class="mt-4 text-base leading-7 text-gray-700">
+          <p class="mt-4 text-base leading-7 text-gray-700 dark:text-gray-700">
             I collect this information simply to understand who is interested in this kind of project and potentially to conduct a follow-up survey.
           </p>
 
@@ -35,32 +24,32 @@
             </p>
 
             <div>
-              <label for="full_name" class="block text-sm font-semibold text-gray-900">Full name</label>
+              <label for="full_name" class="block text-sm font-semibold text-gray-900 dark:text-gray-900">Full name</label>
               <input id="full_name" name="full_name" type="text" autocomplete="name" required
-                class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-base focus:border-[royalblue] focus:outline-none focus:ring-2 focus:ring-[royalblue]/20">
+                class="mt-1 block w-full rounded-lg border border-gray-300 bg-white dark:bg-white px-4 py-2.5 text-base text-gray-900 dark:text-gray-900 focus:border-[royalblue] focus:outline-none focus:ring-2 focus:ring-[royalblue]/20">
             </div>
 
             <div>
-              <label for="job_title" class="block text-sm font-semibold text-gray-900">Job title</label>
+              <label for="job_title" class="block text-sm font-semibold text-gray-900 dark:text-gray-900">Job title</label>
               <input id="job_title" name="job_title" type="text" autocomplete="organization-title" required
-                class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-base focus:border-[royalblue] focus:outline-none focus:ring-2 focus:ring-[royalblue]/20">
+                class="mt-1 block w-full rounded-lg border border-gray-300 bg-white dark:bg-white px-4 py-2.5 text-base text-gray-900 dark:text-gray-900 focus:border-[royalblue] focus:outline-none focus:ring-2 focus:ring-[royalblue]/20">
             </div>
 
             <div>
-              <label for="company" class="block text-sm font-semibold text-gray-900">Company or institution</label>
+              <label for="company" class="block text-sm font-semibold text-gray-900 dark:text-gray-900">Company or institution</label>
               <input id="company" name="company" type="text" autocomplete="organization" required
-                class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-base focus:border-[royalblue] focus:outline-none focus:ring-2 focus:ring-[royalblue]/20">
+                class="mt-1 block w-full rounded-lg border border-gray-300 bg-white dark:bg-white px-4 py-2.5 text-base text-gray-900 dark:text-gray-900 focus:border-[royalblue] focus:outline-none focus:ring-2 focus:ring-[royalblue]/20">
             </div>
 
             <div>
-              <label for="email" class="block text-sm font-semibold text-gray-900">Email address</label>
+              <label for="email" class="block text-sm font-semibold text-gray-900 dark:text-gray-900">Email address</label>
               <input id="email" name="email" type="email" autocomplete="email" required
-                class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-base focus:border-[royalblue] focus:outline-none focus:ring-2 focus:ring-[royalblue]/20">
+                class="mt-1 block w-full rounded-lg border border-gray-300 bg-white dark:bg-white px-4 py-2.5 text-base text-gray-900 dark:text-gray-900 focus:border-[royalblue] focus:outline-none focus:ring-2 focus:ring-[royalblue]/20">
             </div>
 
             <div>
-              <span class="block text-sm font-semibold text-gray-900">Preferred language</span>
-              <div class="mt-2 flex gap-6 text-sm text-gray-700">
+              <span class="block text-sm font-semibold text-gray-900 dark:text-gray-900">Preferred language</span>
+              <div class="mt-2 flex gap-6 text-sm text-gray-700 dark:text-gray-700">
                 <label class="inline-flex items-center gap-2">
                   <input type="radio" name="report_language" value="en" checked class="text-[royalblue] focus:ring-[royalblue]">
                   English
@@ -72,7 +61,7 @@
               </div>
             </div>
 
-            <label class="flex items-start gap-3 text-sm text-gray-700">
+            <label class="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-700">
               <input type="checkbox" name="consent" value="yes" required
                 class="mt-1 h-4 w-4 rounded border-gray-300 text-[royalblue] focus:ring-[royalblue]">
               <span>I agree that my information may be used to understand interest in this research and to potentially contact me for a follow-up survey.</span>
