@@ -64,6 +64,7 @@ a:visited {
 
 /* Liens techniques & mailto */
 a[href*=".pdf"],
+a[href*="fund-architecture-report-access"],
 a[aria-label*="PDF"],
 a[aria-label*="CITE"],
 a[aria-label*="DOI"],
@@ -85,6 +86,7 @@ a[href*="doi.org"],
 
 /* Hover (bleu plus doux) */
 a[href*=".pdf"]:hover,
+a[href*="fund-architecture-report-access"]:hover,
 a[aria-label*="PDF"]:hover,
 a[aria-label*="CITE"]:hover,
 a[aria-label*="DOI"]:hover,
@@ -131,6 +133,7 @@ nav a:focus {
 }
 
 .dark a[href*=".pdf"],
+.dark a[href*="fund-architecture-report-access"],
 .dark a[aria-label*="PDF"],
 .dark a[aria-label*="CITE"],
 .dark a[aria-label*="DOI"],
@@ -225,14 +228,3 @@ section#Updates .prose p { text-align: center; line-height: 1.6; }
   color: #4169e1 !important;
 }
 
-
-/* Blue styling for the "Access report" link on the FundArchitecture project. */
-a.hb-attachment-link[href*="fund-architecture-report-access"],
-a.hb-attachment-link[href*="fund-architecture-report-access"] svg {
-  color: royalblue;
-  fill: royalblue;
-}
-a.hb-attachment-link[href*="fund-architecture-report-access"]:hover {
-  color: #4169e1;
-  text-decoration: underline;
-}
