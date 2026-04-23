@@ -5,7 +5,6 @@ authors:
 - Nicolas Mottis
 
 date: "2025-10-22T00:00:00Z"
-doi: "10.1684/rfg.2025.100"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2025-10-22T00:00:00Z"
@@ -28,4 +27,8 @@ tags:
 - Corporate Governance
 
 featured: false
+
+hugoblox:
+  ids:
+    doi: "10.1684/rfg.2025.100"
 ---

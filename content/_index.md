@@ -35,10 +35,10 @@ sections:
     content:
       title: News & Updates
       #subtitle: ''
-      text: '**Announcement:** I am conducting a survey of French PE firms regarding their sustainable finance practices. If you are interested in participating (and have not been contacted already), please [send me an email](mailto:leo.denis@polytechnique.edu)!'
+      text: 'Recent updates on ongoing research, awards, and academic visits.'
       page_type: blog
       # Choose how many pages you would like to display (0 = all pages)
-      count: 10
+      count: 5
       # Filter on criteria
       filters:
         author: ""

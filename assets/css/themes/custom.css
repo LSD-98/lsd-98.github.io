@@ -224,3 +224,170 @@ section#Updates .prose p { text-align: center; line-height: 1.6; }
   text-decoration: underline;
   color: #4169e1 !important;
 }
+
+.hb-attachment-link[data-gated-download-trigger],
+button.hb-attachment-link[data-gated-download-trigger] {
+  cursor: pointer;
+  border: 0;
+}
+
+.gated-download-open {
+  overflow: hidden;
+}
+
+.gated-download-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+}
+
+.gated-download-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.gated-download-panel {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 36rem);
+  margin: 6vh auto;
+  background: #fff;
+  color: #111827;
+  border-radius: 1rem;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.28);
+  padding: 1.5rem;
+}
+
+.gated-download-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.95rem;
+  background: transparent;
+  border: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+.gated-download-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: royalblue;
+  margin-bottom: 0.4rem;
+}
+
+.gated-download-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.gated-download-description,
+.gated-download-info {
+  margin-top: 0.75rem;
+  color: #374151;
+}
+
+.gated-download-form {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.gated-download-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.gated-download-field span,
+.gated-download-consent span {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.gated-download-field input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  padding: 0.78rem 0.9rem;
+  background: #fff;
+  color: #111827;
+}
+
+.gated-download-field input:focus {
+  outline: 2px solid rgba(65, 105, 225, 0.25);
+  outline-offset: 1px;
+  border-color: royalblue;
+}
+
+.gated-download-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: #1f2937;
+}
+
+.gated-download-consent input {
+  margin-top: 0.2rem;
+}
+
+.gated-download-status {
+  min-height: 1.5rem;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.gated-download-status[data-state="error"] {
+  color: #b91c1c;
+}
+
+.gated-download-status[data-state="pending"] {
+  color: #374151;
+}
+
+.gated-download-status[data-state="success"] {
+  color: #166534;
+}
+
+.gated-download-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.gated-download-submit {
+  border: 0;
+  border-radius: 999px;
+  background: #111827;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.gated-download-submit:hover,
+.gated-download-submit:focus {
+  background: royalblue;
+}
+
+.dark .gated-download-panel {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.dark .gated-download-close,
+.dark .gated-download-description,
+.dark .gated-download-info,
+.dark .gated-download-consent,
+.dark .gated-download-status[data-state="pending"] {
+  color: #cbd5e1;
+}
+
+.dark .gated-download-field input {
+  background: #111827;
+  color: #f8fafc;
+  border-color: #334155;
+}

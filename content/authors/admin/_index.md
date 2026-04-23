@@ -20,7 +20,7 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: PhD Candidate
+role: PhD Candidate in Management Science
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
@@ -28,7 +28,6 @@ organizations:
     url: https://portail.polytechnique.edu/i3_crg/fr
 
 # Social network links
-# Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
     url: 'mailto:leo.denis@polytechnique.edu'
@@ -46,104 +45,18 @@ education:
     institution: École Polytechnique, France
     date_start: 2022
     date_end:
-    #summary:
-    #button:
-      #text: 'Read Thesis'
-      #url: 'https://example.com'
   - area: MResearch in Management,
     institution: École Normale Supérieure Paris-Saclay, France
     date_start: 2019
     date_end: 2021
-    #summary:
-  #- area: Economics & Management
-    #institution: Ecole Normale Supérieure Paris-Saclay
-    #date_start: 2018
-    #date_end: 2022
-    #summary:
-work:
-  - position: Director of Cloud Infrastructure
-    company_name: GenCoin
-    company_url: ''
-    company_logo: ''
-    date_start: 2021-01-01
-    date_end: ''
-    summary: |2-
-      Responsibilities include:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - position: Backend Software Engineer
-    company_name: X
-    company_url: ''
-    company_logo: ''
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      Responsibilities include:
-      - Migrated infrastructure to a new data center
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-
-# Skills
-# Add your own SVG icons to `assets/media/icons/`
-skills:
-  - name: Technical Skills
-    items:
-      - name: Python
-        description: ''
-        percent: 80
-        icon: code-bracket
-      - name: Data Science
-        description: ''
-        percent: 100
-        icon: chart-bar
-      - name: SQL
-        description: ''
-        percent: 40
-        icon: circle-stack
-  - name: Hobbies
-    color: '#eeac02'
-    color_border: '#f0bf23'
-    items:
-      - name: Hiking
-        description: ''
-        percent: 60
-        icon: person-simple-walk
-      - name: Cats
-        description: ''
-        percent: 100
-        icon: cat
-      - name: Photography
-        description: ''
-        percent: 80
-        icon: camera
-
-languages:
-  - name: French (native)
-    #percent: 100
-  - name: English (Fluent)
-    #percent: 75
-
-# Awards.
-#   Add/remove as many awards below as you like.
-#   Only `title`, `awarder`, and `date` are required.
-#   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
-awards:
-  - title: Neural Networks and Deep Learning
-    url: https://www.coursera.org/learn/neural-networks-deep-learning
-    date: '2023-11-25'
-    awarder: Coursera
-    icon: coursera
-    summary: |
-      I studied the foundational concept of neural networks and deep learning. By the end, I was familiar with the significant technological trends driving the rise of deep learning; build, train, and apply fully connected deep neural networks; implement efficient (vectorized) neural networks; identify key parameters in a neural network’s architecture; and apply deep learning to your own applications.
 ---
 
-## Hi, I'm Léo! 👋 
+## Hi, I'm Léo! 👋
 
-I am a PhD Candidate in Management Science at Ecole Polytechnique and a Fellow at the Center for Management Studies (i3, UMR CNRS 9217). Before joining Polytechnique, I graduated from Ecole Normale Supérieure Paris-Saclay in Economics & Management. I also worked in the private equity sector (Trocadero Capital Partners, Cathay Capital) between 2020 and 2024. Most of my research focuses on the development of sustainable finance in the private markets, and whether & how it can positively impact society.
+I am a PhD Candidate in Management Science at École Polytechnique and a Fellow at the Center for Management Studies (i3, UMR CNRS 9217). Before joining Polytechnique, I graduated from École Normale Supérieure Paris-Saclay in Economics & Management and worked in private equity at Trocadero Capital Partners and Cathay Capital.
 
-My work is supported by ANRT, Trocadero Capital Partners (CIFRE), Ecole Polytechnique (Chaire Technology for Change), and several professional organizations (Forum pour l'Investissement Responsable, Association française des Investisseurs Institutionnels).
+My research focuses on sustainable finance in private markets, organizational design, and the conditions under which financial intermediaries can generate social impact. My work is supported by ANRT, Trocadero Capital Partners (CIFRE), École Polytechnique (Chaire Technology for Change), and several professional organizations including Forum pour l'Investissement Responsable and the Association française des Investisseurs Institutionnels.
 
 You can contact me at [leo.denis@polytechnique.edu](mailto:leo.denis@polytechnique.edu).
 
-I will be in NYC for the 2025-2026 academic year as a Visiting PhD student. Please reach out if you would like to connect!
+I am in New York City for the 2025-2026 academic year as a Visiting PhD student at Columbia University. Please reach out if you would like to connect.

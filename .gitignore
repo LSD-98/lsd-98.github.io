@@ -46,4 +46,7 @@ build/
 *.old
 *~
 
+# --- Private local assets / upload staging ---
+private/
+
 # --- Netlify / deployment ---
