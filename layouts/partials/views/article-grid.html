@@ -83,8 +83,8 @@
             {{ end }}
           </div>
         </div>
-        {{ $pdf := $item.Resources.GetMatch (printf "%s.pdf" $item.File.ContentBaseName) }}
-        {{ if $pdf }}
+        {{ $has_attachments := partial "functions/has_attachments" $item }}
+        {{ if $has_attachments }}
           {{ partial "page_links" (dict "page" $item "is_list" true) }}
         {{ end }}
         <div class="flex-none">
