@@ -1,15 +1,22 @@
 import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { verify } from "./_jwt.mjs";
 
 const REPORT_ID = "fund_architecture_report";
 
+// At runtime on Netlify, process.cwd() is /var/task and the PDFs are
+// bundled at /var/task/netlify/functions/assets/ via included_files in
+// netlify.toml. Using process.cwd() avoids the import.meta.url pitfall
+// when esbuild transpiles ESM to CJS.
+const ASSETS_DIR = join(process.cwd(), "netlify", "functions", "assets");
+
 const FILES = {
   fr: {
-    path: new URL("./assets/fund-architecture-report-fr.pdf", import.meta.url),
+    path: join(ASSETS_DIR, "fund-architecture-report-fr.pdf"),
     filename: "Rapport - Finance Durable et Structuration des Fonds.pdf",
   },
   en: {
-    path: new URL("./assets/fund-architecture-report-en.pdf", import.meta.url),
+    path: join(ASSETS_DIR, "fund-architecture-report-en.pdf"),
     filename: "Report - Sustainable Finance and Fund Structuring.pdf",
   },
 };
