@@ -10,8 +10,11 @@ tags:
   - Corporate Governance
   - Survey
   - Private Equity
+links:
+  - name: Access report
+    url: "/fund-architecture-report-access/"
 url: 'Organizational_Architectures'
-url_pdf: '/fund-architecture-report-access/'
+url_pdf: ''
 url_code: ''
 url_dataset: ''
 url_poster: ''
