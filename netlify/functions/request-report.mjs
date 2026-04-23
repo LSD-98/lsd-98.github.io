@@ -31,13 +31,9 @@ export async function handler(event) {
   // Honeypot: bots tend to fill every field. Silently accept but skip logging.
   const isBot = Boolean(fields["bot-field"]);
 
-  const required = ["full_name", "job_title", "company", "email", "consent"];
-  for (const key of required) {
-    if (!fields[key] || String(fields[key]).trim() === "") {
-      return redirect(`${ACCESS_PAGE}?error=missing_${key}`);
-    }
-  }
-  if (!isEmail(fields.email)) {
+  // All visitor fields are optional. If an email is supplied, we still
+  // validate its shape to avoid logging obvious garbage.
+  if (fields.email && String(fields.email).trim() !== "" && !isEmail(fields.email)) {
     return redirect(`${ACCESS_PAGE}?error=invalid_email`);
   }
 
@@ -53,12 +49,10 @@ export async function handler(event) {
     const payload = {
       timestamp: new Date().toISOString(),
       report_id: REPORT_ID,
-      full_name: fields.full_name,
-      job_title: fields.job_title,
-      company: fields.company,
-      email: fields.email,
+      full_name: fields.full_name || "",
+      company: fields.company || "",
+      email: fields.email || "",
       report_language: fields.report_language || "",
-      consent: fields.consent,
       source_page: fields.source_page || "",
       user_agent: userAgent,
     };

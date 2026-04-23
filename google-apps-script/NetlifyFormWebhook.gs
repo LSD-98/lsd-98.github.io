@@ -16,11 +16,9 @@ var HEADERS = [
   'Timestamp',
   'Report ID',
   'Full name',
-  'Job title',
   'Company',
   'Email',
   'Language',
-  'Consent',
   'Source page',
   'User agent'
 ];
@@ -33,11 +31,9 @@ function doPost(e) {
       payload.timestamp || new Date().toISOString(),
       payload.report_id || '',
       payload.full_name || '',
-      payload.job_title || '',
       payload.company || '',
       payload.email || '',
       payload.report_language || '',
-      payload.consent || '',
       payload.source_page || '',
       payload.user_agent || ''
     ]);
