@@ -1,7 +1,7 @@
 ---
 title: Best Paper Designation at AOM 2026 for "Hybridizing Investors"
 summary: "The paper \"Hybridizing Investors\" received a Best Paper designation for AOM 2026."
-date: 2024-04-01
+date: 2026-04-20
 authors:
   - admin
 tags:

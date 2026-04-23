@@ -1,5 +1,5 @@
 ---
-title: 'Sustainable Finance & Organizational Architecture: Evidence from the PE Industry'
+title: 'Organizational Architectures of Sustainable Investment Funds: Evidence from Private Equity'
 date: 2026-04-01
 authors:
   - admin

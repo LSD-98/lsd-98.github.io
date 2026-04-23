@@ -1,7 +1,7 @@
 ---
 title: "New Empirical Report: Finance Durable & Structuration des fonds"
 summary: "The empirical report \"Finance Durable & Structuration des fonds\" is now available."
-date: 2024-04-01
+date: 2024-04-20
 authors:
   - admin
 tags:
