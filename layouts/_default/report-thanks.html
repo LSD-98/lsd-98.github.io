@@ -4,6 +4,7 @@
       <div class="max-w-3xl mx-auto px-6 py-12">
         <div class="rounded-[28px] border border-black/5 bg-white dark:bg-white shadow-[0_30px_80px_rgba(15,23,42,0.10)] p-8 md:p-10">
           <p class="text-xs font-bold uppercase tracking-[0.22em] text-[royalblue]">Empirical report</p>
+          {{ if site.Params.report_downloads.enabled }}
           <h1 class="mt-2 text-4xl font-bold leading-tight text-gray-900 dark:text-gray-900">Thank you</h1>
           <p class="mt-5 text-lg leading-8 text-gray-700 dark:text-gray-700">
             Your request has been recorded. You can now download the report in your preferred language below.
@@ -24,11 +25,18 @@
           <div id="no-token" class="mt-8 hidden rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800" role="alert">
             Missing download token. Please <a href="/fund-architecture-report-access/" class="underline">return to the form</a> and resubmit.
           </div>
+          {{ else }}
+          <h1 class="mt-2 text-4xl font-bold leading-tight text-gray-900 dark:text-gray-900">Report unavailable</h1>
+          <p class="mt-5 text-lg leading-8 text-gray-700 dark:text-gray-700">
+            The full empirical report is not currently available for download.
+          </p>
+          {{ end }}
         </div>
       </div>
     </div>
   </article>
 
+  {{ if site.Params.report_downloads.enabled }}
   <script>
     (function () {
       var token = new URLSearchParams(window.location.search).get("token");
@@ -42,4 +50,5 @@
       document.getElementById("download-fr").href = base + "fr";
     })();
   </script>
+  {{ end }}
 {{ end }}

@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { verify } from "./_jwt.mjs";
+import { reportDownloadsEnabled } from "./_report-downloads.mjs";
 
 const REPORT_ID = "fund_architecture_report";
 
@@ -22,6 +23,14 @@ const FILES = {
 };
 
 export async function handler(event) {
+  if (!reportDownloadsEnabled()) {
+    return {
+      statusCode: 403,
+      headers: { "Content-Type": "text/plain" },
+      body: "Report downloads are currently unavailable.",
+    };
+  }
+
   const lang = (event.queryStringParameters && event.queryStringParameters.lang) || "";
   const token = (event.queryStringParameters && event.queryStringParameters.token) || "";
 

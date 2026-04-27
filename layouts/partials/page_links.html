@@ -138,6 +138,8 @@
 </a>
 {{ end }}
 {{ range $page.Params.links }}
+  {{ $is_report_access_link := eq (.url | default "") "/fund-architecture-report-access/" }}
+  {{ if or (not $is_report_access_link) site.Params.report_downloads.enabled }}
   {{ $pack := or .icon_pack "fas" }}
   {{ $pack_prefix := $pack }}
   {{ if in (slice "fab" "fas" "far" "fal") $pack }}
@@ -161,4 +163,5 @@
     {{ if .icon }}<i class="{{ $pack }} {{ $pack_prefix }}-{{ .icon }} {{ if .name }}mr-1{{ end }}"></i>{{ end }}
     {{- with .name }}{{ . | safeHTML }}{{ end -}}
   </a>
+  {{ end }}
 {{ end }}

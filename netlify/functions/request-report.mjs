@@ -1,4 +1,5 @@
 import { sign } from "./_jwt.mjs";
+import { reportDownloadsEnabled } from "./_report-downloads.mjs";
 
 const REPORT_ID = "fund_architecture_report";
 const TOKEN_TTL_SECONDS = 15 * 60;
@@ -24,6 +25,10 @@ const isEmail = (s) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 export async function handler(event) {
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method not allowed" };
+  }
+
+  if (!reportDownloadsEnabled()) {
+    return { statusCode: 403, body: "Report downloads are currently unavailable." };
   }
 
   const fields = parseForm(event.body, event.isBase64Encoded);

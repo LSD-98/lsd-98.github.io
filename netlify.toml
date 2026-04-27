@@ -16,9 +16,9 @@
   command = "hugo --gc --minify -b $DEPLOY_PRIME_URL && npx pagefind --source 'public'"
 
 [functions]
-  # Bundle PDFs with the serverless functions so they are never served
-  # as static assets. The report is only accessible via download-report.
-  included_files = ["netlify/functions/assets/**"]
+  # Bundle PDFs and the Hugo flag read by the report download functions.
+  # The report remains inaccessible unless report_downloads.enabled is true.
+  included_files = ["netlify/functions/assets/**", "config/_default/params.yaml"]
   node_bundler = "esbuild"
 
 [[plugins]]
