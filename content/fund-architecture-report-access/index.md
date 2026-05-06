@@ -1,5 +1,5 @@
 ---
-title: "Access the empirical report"
+title: "Access the executive summary"
 date: 2026-04-22
 type: page
 layout: report-access

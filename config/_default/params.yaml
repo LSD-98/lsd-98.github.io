@@ -62,4 +62,4 @@ features:
 # Re-enable this to show the FundArchitecture report access link and allow
 # gated downloads through the Netlify functions.
 report_downloads:
-  enabled: false
+  enabled: true
