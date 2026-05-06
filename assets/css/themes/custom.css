@@ -60,6 +60,15 @@ a:visited {
   text-decoration: none;
 }
 
+/* Gated report CTA buttons must override the site's global link colors. */
+a.report-action-primary,
+a.report-action-primary:visited,
+a.report-action-primary:hover,
+a.report-action-primary:focus,
+button.report-action-primary {
+  color: #fff !important;
+}
+
 /* === 4. Accents Royal Blue ============================================== */
 
 /* Liens techniques & mailto */
@@ -227,4 +236,3 @@ section#Updates .prose p { text-align: center; line-height: 1.6; }
   text-decoration: underline;
   color: #4169e1 !important;
 }
-
