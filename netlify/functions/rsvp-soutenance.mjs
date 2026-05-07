@@ -16,17 +16,17 @@ const ZOOM_MEETING_ID = EVENT.zoom_meeting_id;
 const ZOOM_PASSCODE = EVENT.zoom_passcode;
 const DEFAULT_FROM = "leo.denis@polytechnique.edu";
 
-const json = (statusCode, body) => ({
-  statusCode,
-  headers: {
-    "Content-Type": "application/json; charset=utf-8",
-    "Cache-Control": "no-store",
-  },
-  body: JSON.stringify(body),
-});
+const json = (status, body) =>
+  new Response(JSON.stringify(body), {
+    status,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Cache-Control": "no-store",
+    },
+  });
 
-const parseForm = (body, isBase64) => {
-  const raw = isBase64 ? Buffer.from(body || "", "base64").toString("utf8") : body || "";
+const parseForm = (body) => {
+  const raw = body || "";
   const params = new URLSearchParams(raw);
   const out = {};
   for (const [key, value] of params.entries()) out[key] = value;
@@ -206,12 +206,12 @@ const sendConfirmationEmail = async ({ firstName, lastName, email, inPerson }) =
   });
 };
 
-export async function handler(event) {
-  if (event.httpMethod !== "POST") {
+export default async function handler(request) {
+  if (request.method !== "POST") {
     return json(405, { ok: false, message: "Method not allowed" });
   }
 
-  const fields = parseForm(event.body, event.isBase64Encoded);
+  const fields = parseForm(await request.text());
 
   if (fields["bot-field"]) {
     return json(200, { ok: true, ignored: true, message: "Merci, votre RSVP est enregistré." });
@@ -243,7 +243,7 @@ export async function handler(event) {
     email,
     in_person: inPerson,
     created_at: now,
-    user_agent: event.headers["user-agent"] || event.headers["User-Agent"] || "",
+    user_agent: request.headers.get("user-agent") || "",
   };
 
   let reservation;
