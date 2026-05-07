@@ -1,0 +1,20 @@
+{
+  "event_id": "soutenance-leo-denis-2026-06-03",
+  "candidate": "Léo Denis",
+  "thesis_title": "Building the Social Impact of Finance: An Organizational Perspective",
+  "thesis_title_fr": "Construire l'impact social de la finance : une perspective organisationnelle",
+  "date_label_en": "Wednesday, June 3, 2026",
+  "time_label_en": "2:00 PM",
+  "date_label": "Mercredi 3 juin 2026",
+  "time_label": "14h00",
+  "timezone_label": "Europe/Paris",
+  "start_utc": "20260603T120000Z",
+  "end_utc": "20260603T140000Z",
+  "location_label": "Lieu à confirmer",
+  "location_details": "Le lieu exact sera ajouté ici dès qu'il sera confirmé.",
+  "invitation_pdf": "/uploads/invitation-soutenance-leo-denis.pdf",
+  "zoom_url": "https://ecolepolytechnique.zoom.us/j/97592612791?pwd=yjBM61ejgnbs9hPP1caieO5fBlM0xf.1",
+  "zoom_meeting_id": "975 9261 2791",
+  "zoom_passcode": "933376",
+  "access_label": "RER : Luxembourg, Saint-Michel, Cluny la Sorbonne. Métros : Cardinal Lemoine, Maubert Mutualité, Jussieu, Place Monge. Bus : 47, 63, 75, 86, 89."
+}

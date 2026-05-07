@@ -1,0 +1,210 @@
+{{ define "main" }}
+  {{ $event := site.Data.soutenance }}
+
+  <article class="article">
+    <div class="article-container">
+      <div class="mx-auto max-w-3xl px-6 py-10 md:py-14">
+        <header class="text-center">
+          <div class="mb-8 flex justify-center">
+            <button id="language-toggle" type="button"
+              class="inline-flex items-center rounded-full border border-gray-300 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-700 transition hover:border-[royalblue] hover:text-[royalblue] dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200">
+              English
+            </button>
+          </div>
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-[royalblue]">Invitation à la soutenance</p>
+          <h1 class="mt-4 text-xl font-semibold leading-snug text-gray-900 dark:text-gray-100 md:text-2xl">
+            {{ $event.thesis_title }}
+          </h1>
+          <p class="mt-2 text-xl italic leading-snug text-gray-700 dark:text-gray-300 md:text-2xl" data-i18n="title_secondary">
+            {{ $event.thesis_title_fr }}
+          </p>
+          <p class="mt-5 text-base font-semibold text-gray-800 dark:text-gray-200">
+            {{ $event.candidate }}
+          </p>
+        </header>
+
+        <section class="mt-9 rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm dark:border-gray-700 dark:bg-gray-900 md:p-7">
+          <p class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+            <span data-i18n="date_label">{{ $event.date_label }}</span> · <span data-i18n="time_label">{{ $event.time_label }}</span> ({{ $event.timezone_label }})
+          </p>
+          <p class="mt-3 text-base text-gray-600 dark:text-gray-300" data-i18n="location_note">
+            {{ $event.location_label }}. Les informations pratiques seront envoyées après inscription.
+          </p>
+          <a class="mt-6 inline-flex items-center justify-center rounded-full border border-black bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:border-[royalblue] hover:text-[royalblue] dark:bg-gray-900 dark:text-gray-100"
+            href="{{ $event.invitation_pdf }}" data-i18n="pdf_button">
+            Télécharger l'invitation PDF
+          </a>
+        </section>
+
+        <section class="mt-8 rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900 md:p-7">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">RSVP</h2>
+          <p class="mt-3 text-base leading-7 text-gray-600 dark:text-gray-300" data-i18n="rsvp_intro">
+            Merci de confirmer votre présence. Un email de confirmation avec les informations pratiques et l'invitation calendrier vous sera envoyé.
+          </p>
+
+          <div id="rsvp-message" class="mt-5 hidden rounded-lg border px-4 py-3 text-sm" role="status" aria-live="polite"></div>
+
+          <form id="soutenance-rsvp-form" name="soutenance-rsvp" method="POST" action="/soutenance/" data-netlify="true" novalidate class="mt-6 space-y-5">
+            <input type="hidden" name="form-name" value="soutenance-rsvp">
+            <input type="hidden" name="event_id" value="{{ $event.event_id }}">
+            <p class="hidden" aria-hidden="true">
+              <label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+            </p>
+
+            <div>
+              <label for="first_name" class="block text-sm font-semibold text-gray-900 dark:text-gray-100" data-i18n="first_name_label">Prénom</label>
+              <input id="first_name" name="first_name" type="text" autocomplete="given-name" required
+                class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-base text-gray-900 focus:border-[royalblue] focus:outline-none focus:ring-2 focus:ring-[royalblue]/20 dark:border-gray-600 dark:bg-gray-950 dark:text-gray-100">
+            </div>
+
+            <div>
+              <label for="last_name" class="block text-sm font-semibold text-gray-900 dark:text-gray-100" data-i18n="last_name_label">Nom</label>
+              <input id="last_name" name="last_name" type="text" autocomplete="family-name" required
+                class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-base text-gray-900 focus:border-[royalblue] focus:outline-none focus:ring-2 focus:ring-[royalblue]/20 dark:border-gray-600 dark:bg-gray-950 dark:text-gray-100">
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-semibold text-gray-900 dark:text-gray-100" data-i18n="email_label">Adresse email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required
+                class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-base text-gray-900 focus:border-[royalblue] focus:outline-none focus:ring-2 focus:ring-[royalblue]/20 dark:border-gray-600 dark:bg-gray-950 dark:text-gray-100">
+            </div>
+
+            <label class="flex items-start gap-3 rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm text-gray-800 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-200">
+              <input type="checkbox" name="in_person" value="yes" class="mt-1 text-[royalblue] focus:ring-[royalblue]">
+              <span data-i18n="in_person_label">Je prévois d'assister à la soutenance en présentiel.</span>
+            </label>
+
+            <button id="rsvp-submit" type="submit"
+              class="inline-flex w-full items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-[royalblue] disabled:cursor-not-allowed disabled:opacity-60">
+              <span data-i18n="submit_label">Confirmer ma présence</span>
+            </button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </article>
+
+  <script>
+    (function () {
+      var form = document.getElementById("soutenance-rsvp-form");
+      var submit = document.getElementById("rsvp-submit");
+      var message = document.getElementById("rsvp-message");
+      var toggle = document.getElementById("language-toggle");
+      var translations = {
+        fr: {
+          toggle: "English",
+          title_secondary: {{ $event.thesis_title_fr | jsonify | safeJS }},
+          date_label: {{ $event.date_label | jsonify | safeJS }},
+          time_label: {{ $event.time_label | jsonify | safeJS }},
+          location_note: {{ printf "%s. Les informations pratiques seront envoyées après inscription." $event.location_label | jsonify | safeJS }},
+          pdf_button: "Télécharger l'invitation PDF",
+          rsvp_intro: "Merci de confirmer votre présence. Un email de confirmation avec les informations pratiques et l'invitation calendrier vous sera envoyé.",
+          first_name_label: "Prénom",
+          last_name_label: "Nom",
+          email_label: "Adresse email",
+          in_person_label: "Je prévois d'assister à la soutenance en présentiel.",
+          submit_label: "Confirmer ma présence",
+          sending: "Envoi en cours...",
+          submit_error: "Votre RSVP n'a pas pu être enregistré.",
+          duplicate: "Votre RSVP est déjà enregistré.",
+          netlify_error: "Le RSVP a été confirmé par email, mais l'enregistrement Netlify Forms a échoué.",
+          success: "Merci, votre RSVP est confirmé. Un email de confirmation vient de vous être envoyé."
+        },
+        en: {
+          toggle: "Français",
+          title_secondary: {{ $event.thesis_title_fr | jsonify | safeJS }},
+          date_label: {{ $event.date_label_en | jsonify | safeJS }},
+          time_label: {{ $event.time_label_en | jsonify | safeJS }},
+          location_note: {{ printf "%s. Practical details will be sent after registration." $event.location_label | jsonify | safeJS }},
+          pdf_button: "Download the invitation PDF",
+          rsvp_intro: "Please confirm your attendance. You will receive a confirmation email with practical details and a calendar invitation.",
+          first_name_label: "First name",
+          last_name_label: "Last name",
+          email_label: "Email address",
+          in_person_label: "I will attend the defense in person.",
+          submit_label: "Confirm my attendance",
+          sending: "Sending...",
+          submit_error: "RSVP could not be recorded.",
+          duplicate: "RSVP already recorded.",
+          netlify_error: "RSVP was confirmed by email, but the Netlify Forms submission failed.",
+          success: "Thank you, RSVP confirmed. A confirmation email has just been sent to you."
+        }
+      };
+      var language = "fr";
+
+      function text(key) {
+        return translations[language][key];
+      }
+
+      function applyLanguage(nextLanguage) {
+        language = nextLanguage;
+        toggle.textContent = text("toggle");
+        document.documentElement.lang = language;
+        document.querySelectorAll("[data-i18n]").forEach(function (node) {
+          var key = node.getAttribute("data-i18n");
+          if (translations[language][key]) node.textContent = translations[language][key];
+        });
+      }
+
+      toggle.addEventListener("click", function () {
+        applyLanguage(language === "fr" ? "en" : "fr");
+      });
+
+      function showMessage(kind, text) {
+        message.textContent = text;
+        message.className = "mt-5 rounded-lg border px-4 py-3 text-sm";
+        if (kind === "success") {
+          message.classList.add("border-green-200", "bg-green-50", "text-green-800");
+        } else {
+          message.classList.add("border-red-200", "bg-red-50", "text-red-800");
+        }
+      }
+
+      function encode(formData) {
+        return new URLSearchParams(formData).toString();
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var formData = new FormData(form);
+        submit.disabled = true;
+        showMessage("success", text("sending"));
+
+        fetch("/.netlify/functions/rsvp-soutenance", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode(formData)
+        })
+          .then(function (response) {
+            return response.json().then(function (data) {
+              if (!response.ok || !data.ok) {
+                throw new Error(data.message || text("submit_error"));
+              }
+              return data;
+            });
+          })
+          .then(function (data) {
+            if (data.duplicate || data.ignored) {
+              showMessage("success", data.message || text("duplicate"));
+              return null;
+            }
+            return fetch("/", {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: encode(formData)
+            }).then(function (response) {
+              if (!response.ok) throw new Error(text("netlify_error"));
+              showMessage("success", data.message || text("success"));
+              form.reset();
+            });
+          })
+          .catch(function (error) {
+            showMessage("error", error.message);
+          })
+          .finally(function () {
+            submit.disabled = false;
+          });
+      });
+    })();
+  </script>
+{{ end }}

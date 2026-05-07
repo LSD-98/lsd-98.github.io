@@ -16,7 +16,9 @@
   "type": "commonjs",
   "homepage": "https://github.com/LSD-98/lsd-98.github.io#readme",
   "dependencies": {
+    "@netlify/blobs": "^10.7.4",
     "@tailwindcss/cli": "^4.1.16",
+    "nodemailer": "^8.0.7",
     "tailwindcss": "^4.1.16"
   },
   "devDependencies": {

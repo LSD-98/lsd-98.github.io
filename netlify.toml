@@ -18,7 +18,7 @@
 [functions]
   # Bundle PDFs and the Hugo flag read by the report download functions.
   # The report remains inaccessible unless report_downloads.enabled is true.
-  included_files = ["netlify/functions/assets/**", "config/_default/params.yaml"]
+  included_files = ["netlify/functions/assets/**", "config/_default/params.yaml", "data/soutenance.json"]
   node_bundler = "esbuild"
 
 [[plugins]]
