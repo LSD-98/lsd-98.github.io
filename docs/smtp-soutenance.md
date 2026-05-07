@@ -13,7 +13,7 @@ Créer les variables suivantes, avec le scope **Functions** :
 | `SMTP_HOST` | `smtp.example.com` | Serveur SMTP fourni par Polytechnique ou par le prestataire mail. |
 | `SMTP_PORT` | `465` ou `587` | `465` utilise généralement TLS direct, `587` STARTTLS. |
 | `SMTP_SECURE` | `true` pour 465, `false` pour 587 | Si vide, la Function considère `465` comme sécurisé. |
-| `SMTP_USER` | `leo.denis@polytechnique.edu` | Identifiant SMTP. |
+| `SMTP_USER` | `leo.denis` | Identifiant SMTP, sans `@polytechnique.edu` si le serveur attend seulement le login. |
 | `SMTP_PASS` | mot de passe ou app password | Secret SMTP. Ne pas le mettre dans le repo. |
 | `SMTP_FROM` | `leo.denis@polytechnique.edu` | Optionnel si identique à la valeur par défaut. Doit rester en `@polytechnique.edu`. |
 

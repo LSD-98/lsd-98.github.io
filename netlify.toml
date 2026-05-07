@@ -5,6 +5,9 @@
 [build.environment]
   HUGO_VERSION = "0.152.1"
   HUGO_ENABLEGITINFO = "true"
+  # SMTP_USER is a public login that appears inside the public email address.
+  # SMTP_FROM is the public sender address. Keep SMTP_PASS scanned.
+  SECRETS_SCAN_OMIT_KEYS = "SMTP_USER,SMTP_FROM"
 
 [context.production.environment]
   HUGO_ENV = "production"
