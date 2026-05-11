@@ -124,7 +124,7 @@
     {{ with $person.interests }}
     <div class="">
       <div class="section-subheading mb-3">{{ i18n "interests" | markdownify }}</div>
-      <ul class="list-disc list-inside space-y-1 pl-10">
+      <ul class="list-disc list-outside space-y-1 pl-5">
         {{ range . }}
         <li>
           {{ . | markdownify | emojify }}

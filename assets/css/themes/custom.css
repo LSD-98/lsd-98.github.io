@@ -136,6 +136,32 @@ nav a:focus {
   color: #fff !important;
 }
 
+/* Page detail content: undo the global black prose override in dark mode. */
+.dark .page-body article main,
+.dark .page-body article main .prose,
+.dark .page-body article main .prose p,
+.dark .page-body article main .prose li,
+.dark .page-body article main .prose strong,
+.dark .page-body article main .prose em,
+.dark .page-body article main .prose b,
+.dark .page-body article main .prose i,
+.dark .page-body article main .prose blockquote,
+.dark .page-body article main .prose td,
+.dark .page-body article main .prose th,
+.dark .page-body article main .max-w-prose,
+.dark .page-body article main .max-w-prose div {
+  color: #e5e7eb !important;
+}
+
+.dark .page-body article main .prose h1,
+.dark .page-body article main .prose h2,
+.dark .page-body article main .prose h3,
+.dark .page-body article main .prose h4,
+.dark .page-body article main .prose h5,
+.dark .page-body article main .prose h6 {
+  color: #fff !important;
+}
+
 .dark a,
 .dark a:visited {
   color: #fff !important;
@@ -173,12 +199,10 @@ section#Updates .container {
   max-width: 50rem !important; /* largeur moyenne, à ajuster si besoin */
   margin-left: auto !important;
   margin-right: auto !important;
-  text-align: center; /* garde le centrage global */
 }
 
 /* Les paragraphes et liens internes peuvent s'étendre un peu plus */
-section#Updates .prose,
-section#Updates p {
+section#Updates .prose {
   max-width: 50rem !important;
   margin-left: auto;
   margin-right: auto;
@@ -202,8 +226,13 @@ section#Updates [class*="max-w-"] {
   max-width: 50rem !important;   /* ← même valeur que ci-dessus */
 }
 
-/* La typographie reste centrée (si tu veux la garder centrée) */
+/* Garder le texte d'intro centré, mais pas les aperçus des news. */
 section#Updates .prose p { text-align: center; line-height: 1.6; }
+section#Updates article,
+section#Updates article h2,
+section#Updates article p {
+  text-align: left !important;
+}
 
 /* === 9. Mode sombre : texte principal de la bio ========================== */
 

@@ -9,12 +9,12 @@
   "time_label": "14h00",
   "timezone_label": "Europe/Paris",
   "start_utc": "20260603T120000Z",
-  "end_utc": "20260603T140000Z",
-  "location_label": "Lieu à confirmer",
-  "location_details": "Le lieu exact sera ajouté ici dès qu'il sera confirmé.",
+  "end_utc": "20260603T160000Z",
+  "location_label": "École Polytechnique, Bâtiment d'Enseignement Mutualisé (BEM) - Amphi 1",
+  "location_details": "Av. Fresnel, 91120 Palaiseau, France",
   "invitation_pdf": "/uploads/invitation-soutenance-leo-denis.pdf",
   "zoom_url": "https://ecolepolytechnique.zoom.us/j/97592612791?pwd=yjBM61ejgnbs9hPP1caieO5fBlM0xf.1",
   "zoom_meeting_id": "975 9261 2791",
   "zoom_passcode": "933376",
-  "access_label": "RER : Luxembourg, Saint-Michel, Cluny la Sorbonne. Métros : Cardinal Lemoine, Maubert Mutualité, Jussieu, Place Monge. Bus : 47, 63, 75, 86, 89."
+  "access_label": "RER : RER B jusqu’à Massy-Palaiseau, puis le bus 4606 depuis la gare routière. Descendre à « Polytechnique – Lozère ». Ou RER B jusqu’à « Lozère », puis ~15min de marche (escaliers). Bus : 4606"
 }

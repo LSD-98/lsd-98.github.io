@@ -14,6 +14,9 @@ const LOCATION = EVENT.location_label;
 const ZOOM_URL = EVENT.zoom_url;
 const ZOOM_MEETING_ID = EVENT.zoom_meeting_id;
 const ZOOM_PASSCODE = EVENT.zoom_passcode;
+const LOCATION_DETAILS = EVENT.location_details || "";
+const ACCESS_LABEL = EVENT.access_label || "";
+const LOCATION_FULL = [LOCATION, LOCATION_DETAILS].filter(Boolean).join(", ");
 const DEFAULT_FROM = "leo.denis@polytechnique.edu";
 
 const json = (status, body) =>
@@ -86,10 +89,12 @@ const createIcs = ({ attendeeEmail, attendeeName, fromEmail }) => {
   const uid = `${EVENT_ID}-${hashEmail(attendeeEmail).slice(0, 16)}@leo-denis.eu`;
   const description = [
     `Soutenance de thèse de Léo Denis: ${THESIS_TITLE}`,
+    `Lieu: ${LOCATION_FULL}`,
+    ACCESS_LABEL ? `Accès: ${ACCESS_LABEL}` : "",
     `Zoom: ${ZOOM_URL}`,
     `ID de réunion: ${ZOOM_MEETING_ID}`,
     `Code secret: ${ZOOM_PASSCODE}`,
-  ].join("\\n");
+  ].filter(Boolean).join("\\n");
 
   return [
     "BEGIN:VCALENDAR",
@@ -104,7 +109,7 @@ const createIcs = ({ attendeeEmail, attendeeName, fromEmail }) => {
     `DTEND:${EVENT_END_UTC}`,
     `SUMMARY:${escapeIcs(EVENT_TITLE)}`,
     `DESCRIPTION:${escapeIcs(description)}`,
-    `LOCATION:${escapeIcs(LOCATION)}`,
+    `LOCATION:${escapeIcs(LOCATION_FULL)}`,
     `ORGANIZER;CN=Léo Denis:mailto:${fromEmail}`,
     `ATTENDEE;CN=${escapeIcs(attendeeName)};ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=FALSE:mailto:${attendeeEmail}`,
     "END:VEVENT",
@@ -115,22 +120,31 @@ const createIcs = ({ attendeeEmail, attendeeName, fromEmail }) => {
 };
 
 const buildEmail = ({ firstName, inPerson }) => {
-  const attendanceLine = inPerson
+  const attendanceLineFr = inPerson
     ? "Vous avez indiqué prévoir d'assister à la soutenance en présentiel. Le lieu exact vous sera confirmé dès qu'il sera disponible."
     : "Vous pourrez assister à la soutenance en visioconférence avec les informations Zoom ci-dessous.";
+  const attendanceLineEn = inPerson
+    ? "You indicated that you plan to attend the defense in person. The exact location will be confirmed as soon as it is available."
+    : "You will be able to attend the defense online using the Zoom details below.";
   const safeFirstName = escapeHtml(firstName);
+  const safeThesisTitle = escapeHtml(THESIS_TITLE);
+  const safeLocation = escapeHtml(LOCATION);
+  const safeLocationDetails = escapeHtml(LOCATION_DETAILS);
+  const safeAccessLabel = escapeHtml(ACCESS_LABEL);
 
   const text = [
     `Bonjour ${firstName},`,
     "",
-    "Merci pour votre RSVP à ma soutenance de thèse.",
+    "Merci pour votre inscription à ma soutenance de thèse.",
     "",
     `Titre : ${THESIS_TITLE}`,
     `Date : ${EVENT.date_label}`,
     `Heure : ${EVENT.time_label} (${EVENT.timezone_label})`,
     `Lieu : ${LOCATION}`,
+    LOCATION_DETAILS ? `Adresse : ${LOCATION_DETAILS}` : null,
+    ACCESS_LABEL ? `Accès : ${ACCESS_LABEL}` : null,
     "",
-    attendanceLine,
+    attendanceLineFr,
     "",
     `Lien Zoom : ${ZOOM_URL}`,
     `ID de réunion : ${ZOOM_MEETING_ID}`,
@@ -138,20 +152,48 @@ const buildEmail = ({ firstName, inPerson }) => {
     "",
     "Une invitation calendrier est jointe à cet email.",
     "",
+    "---",
+    "",
+    `Dear ${firstName},`,
+    "",
+    "Thank you for registering for my PhD defense.",
+    "",
+    `Title: ${THESIS_TITLE}`,
+    `Date: ${EVENT.date_label_en}`,
+    `Time: ${EVENT.time_label_en} (${EVENT.timezone_label})`,
+    `Location: ${LOCATION}`,
+    LOCATION_DETAILS ? `Address: ${LOCATION_DETAILS}` : null,
+    ACCESS_LABEL ? `Access: ${ACCESS_LABEL}` : null,
+    "",
+    attendanceLineEn,
+    "",
+    `Zoom link: ${ZOOM_URL}`,
+    `Meeting ID: ${ZOOM_MEETING_ID}`,
+    `Passcode: ${ZOOM_PASSCODE}`,
+    "",
+    "A calendar invitation is attached to this email.",
+    "",
+    "Best regards,",
+    "Léo Denis",
+    "",
+    "---",
+    "",
     "Bien cordialement,",
     "Léo Denis",
-  ].join("\n");
+  ].filter((line) => line !== null).join("\n");
 
   const html = `
     <p>Bonjour ${safeFirstName},</p>
-    <p>Merci pour votre RSVP à ma soutenance de thèse.</p>
+    <p>Merci pour votre inscription à ma soutenance de thèse.</p>
     <p>
-      <strong>Titre :</strong> ${THESIS_TITLE}<br>
+      <strong>Titre :</strong> ${safeThesisTitle}<br>
       <strong>Date :</strong> ${EVENT.date_label}<br>
       <strong>Heure :</strong> ${EVENT.time_label} (${EVENT.timezone_label})<br>
-      <strong>Lieu :</strong> ${LOCATION}
+      <strong>Lieu :</strong> ${safeLocation}<br>
+      ${safeLocationDetails ? `<strong>Adresse :</strong> ${safeLocationDetails}<br>` : ""}
+      ${safeAccessLabel ? `<strong>Accès :</strong> ${safeAccessLabel}` : ""}
     </p>
-    <p>${attendanceLine}</p>
+    <p>${attendanceLineFr}</p>
     <p>
       <strong>Zoom :</strong> <a href="${ZOOM_URL}">${ZOOM_URL}</a><br>
       <strong>ID de réunion :</strong> ${ZOOM_MEETING_ID}<br>
@@ -159,6 +201,25 @@ const buildEmail = ({ firstName, inPerson }) => {
     </p>
     <p>Une invitation calendrier est jointe à cet email.</p>
     <p>Bien cordialement,<br>Léo Denis</p>
+    <hr>
+    <p>Dear ${safeFirstName},</p>
+    <p>Thank you for registering for my PhD defense.</p>
+    <p>
+      <strong>Title:</strong> ${safeThesisTitle}<br>
+      <strong>Date:</strong> ${EVENT.date_label_en}<br>
+      <strong>Time:</strong> ${EVENT.time_label_en} (${EVENT.timezone_label})<br>
+      <strong>Location:</strong> ${safeLocation}<br>
+      ${safeLocationDetails ? `<strong>Address:</strong> ${safeLocationDetails}<br>` : ""}
+      ${safeAccessLabel ? `<strong>Access:</strong> ${safeAccessLabel}` : ""}
+    </p>
+    <p>${attendanceLineEn}</p>
+    <p>
+      <strong>Zoom:</strong> <a href="${ZOOM_URL}">${ZOOM_URL}</a><br>
+      <strong>Meeting ID:</strong> ${ZOOM_MEETING_ID}<br>
+      <strong>Passcode:</strong> ${ZOOM_PASSCODE}
+    </p>
+    <p>A calendar invitation is attached to this email.</p>
+    <p>Best regards,<br>Léo Denis</p>
   `;
 
   return { text, html };
