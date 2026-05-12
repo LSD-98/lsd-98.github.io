@@ -10,12 +10,12 @@ const EVENT_TITLE = `Soutenance de thèse - ${EVENT.candidate}`;
 const THESIS_TITLE = EVENT.thesis_title;
 const EVENT_START_UTC = EVENT.start_utc;
 const EVENT_END_UTC = EVENT.end_utc;
-const LOCATION = EVENT.location_label;
-const ZOOM_URL = EVENT.zoom_url;
-const ZOOM_MEETING_ID = EVENT.zoom_meeting_id;
-const ZOOM_PASSCODE = EVENT.zoom_passcode;
-const LOCATION_DETAILS = EVENT.location_details || "";
-const ACCESS_LABEL = EVENT.access_label || "";
+const LOCATION = String(EVENT.location_label || "").trim();
+const ZOOM_URL = String(EVENT.zoom_url || "").trim();
+const ZOOM_MEETING_ID = String(EVENT.zoom_meeting_id || "").trim();
+const ZOOM_PASSCODE = String(EVENT.zoom_passcode || "").trim();
+const LOCATION_DETAILS = String(EVENT.location_details || "").trim();
+const ACCESS_LABEL = String(EVENT.access_label || "").trim();
 const LOCATION_FULL = [LOCATION, LOCATION_DETAILS].filter(Boolean).join(", ");
 const DEFAULT_FROM = "leo.denis@polytechnique.edu";
 
@@ -94,7 +94,7 @@ const createIcs = ({ attendeeEmail, attendeeName, fromEmail }) => {
     `Zoom: ${ZOOM_URL}`,
     `ID de réunion: ${ZOOM_MEETING_ID}`,
     `Code secret: ${ZOOM_PASSCODE}`,
-  ].filter(Boolean).join("\\n");
+  ].filter(Boolean).join("\n");
 
   return [
     "BEGIN:VCALENDAR",
@@ -110,6 +110,7 @@ const createIcs = ({ attendeeEmail, attendeeName, fromEmail }) => {
     `SUMMARY:${escapeIcs(EVENT_TITLE)}`,
     `DESCRIPTION:${escapeIcs(description)}`,
     `LOCATION:${escapeIcs(LOCATION_FULL)}`,
+    `URL:${escapeIcs(ZOOM_URL)}`,
     `ORGANIZER;CN=Léo Denis:mailto:${fromEmail}`,
     `ATTENDEE;CN=${escapeIcs(attendeeName)};ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=FALSE:mailto:${attendeeEmail}`,
     "END:VEVENT",
@@ -121,16 +122,17 @@ const createIcs = ({ attendeeEmail, attendeeName, fromEmail }) => {
 
 const buildEmail = ({ firstName, inPerson }) => {
   const attendanceLineFr = inPerson
-    ? "Vous avez indiqué prévoir d'assister à la soutenance en présentiel. Le lieu exact vous sera confirmé dès qu'il sera disponible."
+    ? "Vous avez indiqué prévoir d'assister à la soutenance en présentiel. Les informations d'accès figurent ci-dessus."
     : "Vous pourrez assister à la soutenance en visioconférence avec les informations Zoom ci-dessous.";
   const attendanceLineEn = inPerson
-    ? "You indicated that you plan to attend the defense in person. The exact location will be confirmed as soon as it is available."
+    ? "You indicated that you plan to attend the defense in person. Access information is provided above."
     : "You will be able to attend the defense online using the Zoom details below.";
   const safeFirstName = escapeHtml(firstName);
   const safeThesisTitle = escapeHtml(THESIS_TITLE);
   const safeLocation = escapeHtml(LOCATION);
   const safeLocationDetails = escapeHtml(LOCATION_DETAILS);
   const safeAccessLabel = escapeHtml(ACCESS_LABEL);
+  const safeZoomUrl = escapeHtml(ZOOM_URL);
 
   const text = [
     `Bonjour ${firstName},`,
@@ -151,6 +153,9 @@ const buildEmail = ({ firstName, inPerson }) => {
     `Code secret : ${ZOOM_PASSCODE}`,
     "",
     "Une invitation calendrier est jointe à cet email.",
+    "",
+    "Bien cordialement,",
+    "Léo Denis",
     "",
     "---",
     "",
@@ -175,11 +180,6 @@ const buildEmail = ({ firstName, inPerson }) => {
     "",
     "Best regards,",
     "Léo Denis",
-    "",
-    "---",
-    "",
-    "Bien cordialement,",
-    "Léo Denis",
   ].filter((line) => line !== null).join("\n");
 
   const html = `
@@ -195,7 +195,7 @@ const buildEmail = ({ firstName, inPerson }) => {
     </p>
     <p>${attendanceLineFr}</p>
     <p>
-      <strong>Zoom :</strong> <a href="${ZOOM_URL}">${ZOOM_URL}</a><br>
+      <strong>Zoom :</strong> <a href="${safeZoomUrl}">${safeZoomUrl}</a><br>
       <strong>ID de réunion :</strong> ${ZOOM_MEETING_ID}<br>
       <strong>Code secret :</strong> ${ZOOM_PASSCODE}
     </p>
@@ -214,7 +214,7 @@ const buildEmail = ({ firstName, inPerson }) => {
     </p>
     <p>${attendanceLineEn}</p>
     <p>
-      <strong>Zoom:</strong> <a href="${ZOOM_URL}">${ZOOM_URL}</a><br>
+      <strong>Zoom:</strong> <a href="${safeZoomUrl}">${safeZoomUrl}</a><br>
       <strong>Meeting ID:</strong> ${ZOOM_MEETING_ID}<br>
       <strong>Passcode:</strong> ${ZOOM_PASSCODE}
     </p>
