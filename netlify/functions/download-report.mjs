@@ -13,12 +13,12 @@ const ASSETS_DIR = join(process.cwd(), "netlify", "functions", "assets");
 
 const FILES = {
   fr: {
-    path: join(ASSETS_DIR, "Exec_Summary_FR.pdf"),
-    filename: "Résumé exécutif - Finance Durable et Structuration des Fonds.pdf",
+    path: join(ASSETS_DIR, "fund-architecture-report-fr.pdf"),
+    filename: "Rapport complet - Finance Durable et Structuration des Fonds.pdf",
   },
   en: {
-    path: join(ASSETS_DIR, "Exec_Summary_EN.pdf"),
-    filename: "Executive Summary - Sustainable Finance and Fund Structuring.pdf",
+    path: join(ASSETS_DIR, "fund-architecture-report-en.pdf"),
+    filename: "Full Report - Sustainable Finance and Fund Structuring.pdf",
   },
 };
 
@@ -27,7 +27,7 @@ export async function handler(event) {
     return {
       statusCode: 403,
       headers: { "Content-Type": "text/plain" },
-      body: "Executive summary downloads are currently unavailable.",
+      body: "Report downloads are currently unavailable.",
     };
   }
 

@@ -1,5 +1,5 @@
 ---
-title: "Thank you — access the executive summary"
+title: "Thank you — access the full report"
 date: 2026-04-22
 type: page
 layout: report-thanks

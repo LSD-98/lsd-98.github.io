@@ -7,12 +7,9 @@
         <div class="rounded-[28px] border border-black/5 bg-white dark:bg-white shadow-[0_30px_80px_rgba(15,23,42,0.10)] p-8 md:p-10">
           <p class="text-xs font-bold uppercase tracking-[0.22em] text-[royalblue]">Empirical report</p>
           {{ if site.Params.report_downloads.enabled }}
-          <h1 class="mt-2 text-4xl font-bold leading-tight text-gray-900 dark:text-gray-900">Access the executive summary</h1>
+          <h1 class="mt-2 text-4xl font-bold leading-tight text-gray-900 dark:text-gray-900">Access the full report</h1>
           <p class="mt-5 text-lg leading-8 text-gray-700 dark:text-gray-700">
-            I am kindly asking for you to share your contact details in order to get the 12-page executive summary. It is useful to understand who might use this research and to conduct future surveys if you are interested in this topic. It will only be used for this purpose.
-          </p>
-          <p class="mt-3 text-base leading-7 text-gray-600 dark:text-gray-600">
-            The complete empirical reports will be available soon.
+            I am kindly asking for you to share your contact details in order to get the full empirical report. It is useful to understand who might use this research and to conduct future surveys if you are interested in this topic. It will only be used for this purpose.
           </p>
 
           <div id="form-error" class="mt-6 hidden rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800" role="alert"></div>
@@ -59,14 +56,14 @@
             <div class="pt-2">
               <button type="submit"
                 class="report-action-primary inline-flex items-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-[royalblue]">
-                Access executive summary
+                Access full report
               </button>
             </div>
           </form>
           {{ else }}
-          <h1 class="mt-2 text-4xl font-bold leading-tight text-gray-900 dark:text-gray-900">Executive summary unavailable</h1>
+          <h1 class="mt-2 text-4xl font-bold leading-tight text-gray-900 dark:text-gray-900">Report unavailable</h1>
           <p class="mt-5 text-lg leading-8 text-gray-700 dark:text-gray-700">
-            The executive summary is not currently available for download. The complete empirical reports will be available soon.
+            The full empirical report is not currently available for download.
           </p>
           {{ end }}
         </div>
