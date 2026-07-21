@@ -8,7 +8,7 @@ tags:
   - Sustainable Finance
   - Organization Design
   - Corporate Governance
-  - Survey
+  - Cluster Analysis
   - Private Equity
 links:
   - name: Access report
