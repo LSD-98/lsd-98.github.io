@@ -47,7 +47,7 @@
             </span></a>
         </h2>
         {{ if $item.Params.status }}
-          <p class="status mt-1 dark:text-white text-sm tracking-tight">
+          <p class="status{{ with $item.Params.status_type }} status--{{ . }}{{ end }} mt-1 dark:text-white text-sm tracking-tight">
             {{ $item.Params.status | markdownify }}
           </p>
         {{ end }}

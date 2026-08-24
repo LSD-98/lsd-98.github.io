@@ -4,7 +4,8 @@ date: 2025-10-01
 authors:
   - admin
   - Nicolas Mottis
-Status: Collecting Feedback
+Status: Available on SSRN
+status_type: ssrn
 tags:
   - Sustainable Finance
   - Organization Design
@@ -13,6 +14,7 @@ tags:
   - Private Equity
 # links:
 url: 'Hybridizing_Investors'
+url_preprint: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7197359'
 url_pdf: ''
 url_code: ''
 url_dataset: ''

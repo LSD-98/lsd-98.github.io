@@ -3,7 +3,8 @@ title: 'Organizational Architectures of Sustainable Investment Funds: Evidence f
 date: 2026-04-01
 authors:
   - admin
-Status: Draft available on request, empirical report available
+Status: Available on SSRN
+status_type: ssrn
 tags:
   - Sustainable Finance
   - Organization Design
@@ -14,6 +15,7 @@ links:
   - name: Access report
     url: "/fund-architecture-report-access/"
 url: 'Organizational_Architectures'
+url_preprint: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7196700'
 url_pdf: ''
 url_code: ''
 url_dataset: ''

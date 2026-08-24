@@ -265,3 +265,35 @@ section#Updates article p {
   text-decoration: underline;
   color: #4169e1 !important;
 }
+
+/* === 10. Working papers available on SSRN =============================== */
+
+.status.status--ssrn {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid royalblue;
+  border-radius: 9999px;
+  color: royalblue !important;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+a[href*="papers.ssrn.com"] {
+  color: royalblue !important;
+}
+
+a[href*="papers.ssrn.com"]:hover {
+  color: #4169e1 !important;
+  text-decoration: underline;
+}
+
+.dark .status.status--ssrn,
+.dark a[href*="papers.ssrn.com"] {
+  color: #8ab4f8 !important;
+  border-color: #8ab4f8;
+}
