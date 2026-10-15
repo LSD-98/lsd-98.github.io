@@ -14,11 +14,11 @@ const ASSETS_DIR = join(process.cwd(), "netlify", "functions", "assets");
 const FILES = {
   fr: {
     path: join(ASSETS_DIR, "fund-architecture-report-fr.pdf"),
-    filename: "Rapport complet - Finance Durable et Structuration des Fonds.pdf",
+    filename: "Finance Durable & Structuration des fonds de PE.pdf",
   },
   en: {
     path: join(ASSETS_DIR, "fund-architecture-report-en.pdf"),
-    filename: "Full Report - Sustainable Finance and Fund Structuring.pdf",
+    filename: "Sustainable Finance & PE Fund Structuring.pdf",
   },
 };
 
